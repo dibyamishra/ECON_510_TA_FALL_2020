@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Installation}{1}{section.1}
+\contentsline {section}{\numberline {2}Basics}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Packages and Templates}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Generating Title, Author, Date}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Formatting}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Math Mode}{2}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Making Your Own Theorem Styles and Math Operators}{3}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Making Tables}{3}{subsection.2.6}
+\contentsline {section}{\numberline {3}Adding References}{5}{section.3}
+\contentsline {section}{\numberline {4}Alternative Choice: LyX}{6}{section.4}
+\contentsline {section}{\numberline {5}Some Small Assignments}{6}{section.5}
+\contentsline {section}{\numberline {6}Last Sentence}{6}{section.6}

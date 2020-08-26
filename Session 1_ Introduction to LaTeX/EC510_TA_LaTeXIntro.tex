@@ -1,0 +1,426 @@
+\documentclass[10pt]{extarticle}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2.5cm}
+\usepackage{amsmath, amssymb}
+\usepackage{verbatim}
+\usepackage[english]{babel}
+\usepackage[autostyle, english=american]{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage{icomma}
+\usepackage{xcolor}
+\usepackage{multirow, booktabs, array, tabu}
+\linespread{1.2}
+\MakeOuterQuote{"}
+\usepackage{icomma}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\makeatletter
+\def\@biblabel#1{#1}
+\makeatother
+\bibliographystyle{unsrt}
+\usepackage[superscript]{cite}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.3em}
+\usepackage{leftidx}
+
+%%Math
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{bm}
+
+%%Fronts
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+%\usepackage{fontspec}
+%\setmainfont{Georgia}
+
+%%Figures
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+%%Tables
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex} 
+\usepackage{tabularx}
+\usepackage{booktabs,caption}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{adjustbox}
+\usepackage{supertabular}
+\setcounter{table}{0}
+\usepackage{siunitx}
+\usepackage{changepage}
+\usepackage{arydshln}
+\usepackage{threeparttablex}
+
+%%Landscape Pages
+\usepackage{changepage}
+\usepackage{pdflscape}
+
+\usepackage{fancyhdr}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{d}[1]{>{\rightdots{#1}}r<{\endrightdots}}
+
+
+%%%%%  Theorem Styles  %%%%%
+% These allow you to create a new theorem, definition, assumption.
+
+\newtheoremstyle{theorem}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+
+\newtheoremstyle{lemma}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{lemma}
+\newtheorem{lemma}{Lemma}
+
+\newtheoremstyle{proposition}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{proposition}
+\newtheorem{proposition}{Proposition}
+
+\newtheoremstyle{corollary}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{corollary}
+\newtheorem{corollary}{Corollary}
+
+\newtheoremstyle{assumption}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{assumption}
+\newtheorem{assumption}{Assumption}
+
+\newtheoremstyle{Model}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{model}
+\newtheorem{model}{Model}
+
+\newtheoremstyle{property}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{property}
+\newtheorem{property}{Property}
+
+\newtheoremstyle{example}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{example}
+\newtheorem{ex}{Example}
+
+\newtheoremstyle{algorithm}{4mm}{1mm}{\itshape}{ }{\bfseries}{.}{ }{}
+\theoremstyle{algorithm}
+\newtheorem{algorithm}{Algorithm}
+
+\newtheoremstyle{definition}{4mm}{1mm}{}{ }{\bfseries}{.}{ }{}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\newtheoremstyle{axiom}{4mm}{1mm}{}{ }{\bfseries}{.}{ }{}
+\theoremstyle{axiom}
+\newtheorem{axiom}[theorem]{Axiom}
+
+\newtheoremstyle{remark}{4mm}{1mm}{}{ }{\bfseries}{.}{ }{}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+
+
+%%%%%  Macros for Math Operators  %%%%%
+% These re-define and define certain math operators that you may find useful.
+
+% mathbb sets are the usual way of defining, for example, the real line: $\R$
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+% Common operators in econometrics 
+\DeclareMathOperator*{\minmax}{min/max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\arginf}{arg\,inf}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\var}{Var}
+\DeclareMathOperator*{\cov}{Cov}
+\DeclareMathOperator*{\plim}{plim}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand{\If}{\Rightarrow}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\DeclareMathOperator{\E}{E} % expectation
+\newcommand{\Ex}[1]{\E\left\{#1\right\}} % expectation with brackets
+
+\DeclareMathOperator{\pr}{Pr} % probability
+\newcommand{\prob}[1]{\pr\left\{#1\right\}}
+
+\DeclareMathOperator{\subjectto}{{s.t.\ }} % subject to
+\newcommand{\card}[1]{\left|#1\right|}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bs}{\boldsymbol}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\makeatother
+
+
+\begin{document}
+\author{Dibya Mishra\thanks{%
+Department of Economics, Rice University. Email: ddm5@rice.edu} $~$and Jintao Sun\thanks{%
+Department of Economics, Rice University. Email: js167@rice.edu}}
+\title{{\Large ECON510 TA Session: Introduction to \LaTeX}}
+\date{\today}
+\maketitle
+
+\vspace*{-3em}
+
+
+\section{Installation}
+
+Before installing the \TeX/\LaTeX \ editor, you need to download and run the basic \textbf{MiKTeX} installer to set up the \TeX/\LaTeX system. Get the \textbf{MiKTeX} installer here \href{https://miktex.org/download}{https://miktex.org/download} for Windows or Mac.
+
+Then you should choose your \TeX/\LaTeX \ editor. The popular ones are:
+
+\textbf{TeXmaker} (download here \href{https://www.xm1math.net/texmaker/}{https://www.xm1math.net/texmaker/}) 
+
+\textbf{TeXstudio} (download here \href{https://www.texstudio.org/}{https://www.texstudio.org/})
+
+\textbf{TeXworks} (download here \href{http://www.tug.org/texworks/}{http://www.tug.org/texworks/})
+
+\textbf{Overleaf} is a popular online \TeX/\LaTeX \ editor. Co-authors can share and collaborate to edit the tex file online rather than through cloud storage softwares such as Dropbox, Google Drive, or OneDrive. You can register your account and create your project here \href{https://www.overleaf.com/}{https://www.overleaf.com/}.
+
+
+\section{Basics}
+
+There are a lot of \LaTeX tutorials online that you can refer to. I recommend two in \textbf{Overleaf}: \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn LaTeX in 30 minutes} and \href{https://www.overleaf.com/learn/latex/Free\_online\_introduction\_to\_LaTeX\_(part\_1)}{Dr John Lees-Miller's 3-part LaTeX tutorial series}. Some other tutorials are much longer and you can use them as a dictionary, \textit{e.g.}, \href{https://github.com/oetiker/lshort}{The Not So Short Introduction to LaTeX} and the very detailed documentation in \textbf{Overleaf} (see: \href{https://www.overleaf.com/learn/latex/Main\_Page}{https://www.overleaf.com/learn/latex/Main\_Page}).
+
+
+\subsection{Packages and Templates}
+
+We need basic packages in \LaTeX \ to set up font, font size, margins, first line indent, and so on. You can accumulate the packages and form your own tex file template. As an example, see the packages used in your \textbf{Homework 1}.
+
+You can find multiple useful tex file templates in \textbf{Overleaf} for academic journal, curriculum vitae, poster, and so on (see: \href{https://www.overleaf.com/latex/templates}{https://www.overleaf.com/latex/templates}). American Economic Association (AEA) also provides templates in different formats for manuscript native files (see: \href{https://www.aeaweb.org/journals/policies/templates}{https://www.aeaweb.org/journals/policies/templates}).
+
+
+\subsection{Generating Title, Author, Date}
+
+We can generate the article title, author name(s) with institution name(s) and email(s) in the footnote, and the date (make it updated).
+
+\subsection{Formatting}
+
+chapter, section, subsection, subsubsection, ...
+
+itemize, enumerate, ...
+
+Here is an example of \underline{itemization}:
+\begin{itemize}
+\item Separating equilibria
+\item Pooling equilibria
+\item Semi-separating equilibria
+\item Equilibria in which both players non-trivially randomize
+\end{itemize}
+
+Here is an example of \underline{enumeration}:
+\begin{enumerate}
+\item Separating equilibria
+\item Pooling equilibria
+\item Semi-separating equilibria
+\item Equilibria in which both players non-trivially randomize 
+\end{enumerate}
+
+
+\subsection{Math Mode}
+Mathematical mode is the most frequent we will use in \LaTeX. Your \textbf{Homework 1} is a good example.
+
+To type in some math symbols in a sentence, you can write: Euler's formula is $e^{ix}=\cos x+i \sin x$.
+
+To type in a single line centered, you can write: a function $U:X\to \mathbb{R}$ is \textit{quasi-concave} if and only if
+\[
+\forall x,y \in X,~\forall \alpha \in (0,1):~U(\alpha x+(1-\alpha)y) \geq \min\{U(x),U(y)\}
+\]
+
+To type in multiple formulas in multiple lines and make them aligned, you can write: suppose $x_1,~x_2 \in X$ with $x_1 \neq x_2$ and define
+\begin{align}
+& \hat{y}_1=\mathop{\arg\max}_{y \in \Gamma(x_1)}~[F(x_1,y)+\beta f(y)] \\
+& \hat{y}_2=\mathop{\arg\max}_{y \in \Gamma(x_2)}~[F(x_2,y)+\beta f(y)] 
+\end{align}
+
+By adding a star, you can avoid automatically enumerating: with $0<\theta<1$, define
+\begin{align*}
+x_\theta=\theta x_1+(1-\theta) x_2 \\
+y_\theta=\theta \hat{y}_1+(1-\theta) \hat{y}_2
+\end{align*}
+
+Let's skim \textbf{Homework 1} to see some math expressions mostly often used. 
+
+\subsection{Making Your Own Theorem Styles and Math Operators}
+As you see in \textbf{Homework 1}, Prof. Thirkettle has created some new theorem styles and math operators of his own. Let's look at how we could use them.
+
+\begin{defn}
+Here is Definition 1
+\end{defn}
+
+\begin{ex}
+Here is Example 1
+\end{ex}
+
+\subsection{Making Tables}
+
+The main difference between \textbf{table} and \textbf{longtable} is that \textbf{longtable} provides a mixed-use case for having a too-large table that you want to split across the page boundary. There also exists a difference between when you want to add table notes. You can also use \textbf{tabular} to make simple tables.
+
+\begin{table}[H]
+\begin{center}
+  \begin{threeparttable}
+    \caption{\textbf{International Student Enrollment at Rice University from 1999-2019}}
+     \begin{tabular}{lccccc}
+        \toprule
+        Academic Year & Undergraduate IS & Graduate IS & Total IS & Overall total & IS\%  \\
+        \midrule
+1999-2000 &84 &434 &518 &4184 &12.38\\
+2000-2001 &77 &471 &548 &4372 &12.53\\
+2001-2002 &72 &551 &633 &4300 &14.72\\
+2002-2003 &93 &569 &662 &4733 &13.99\\
+2003-2004 &103 &571 &674 &4864 &13.86\\
+2004-2005 &99 &592 &691 &4950 &13.96\\
+2005-2006 &111 &644 &755 &4947 &15.26\\
+2006-2007 &139 &662 &801 &5179 &15.47\\
+2007-2008 &168 &684 &852 &5259 &16.20\\
+2008-2009 &203 &718 &921 &5337 &17.26\\
+2009-2010 &285 &767 &1052 &5577 &18.86\\
+2010-2011 &340 &773 &1113 &5763 &19.31\\
+2011-2012 &367 &827 &1194 &6080 &19.64\\
+2012-2013 &390 &898 &1288 &6402 &20.12\\
+2013-2014 &452 &975 &1427 &6354 &22.46\\
+2014-2015 &462 &1037 &1499 &6563 &22.84\\
+2015-2016 &476 &1087 &1563 &6692 &23.36\\
+2016-2017 &472 &1139 &1611 &6805 &23.61\\
+2017-2018 &458 &1174 &1632 &6907 &23.63\\
+2018-2019 &455 &1217 &1672 &7009 &23.86\\
+2019-2020 &478 &1311 &1789 &7146 &25.03 \\
+        \bottomrule
+     \end{tabular}
+    \begin{tablenotes}
+      \footnotesize
+      \item [a] Data source: \href{https://oiss.rice.edu/sites/g/files/bxs1291/f/StatReport2019-Public-Version.pdf}{The Office of International Students \& Scholars (OISS) Statistical Report for Fall 2019}
+      \item [b] IS: International degree-seeking students (non-immigrants only)
+      \item [c] IS\%: Percentage of Rice student population that is, or was, international
+      \item [d] Totals do not include visiting/exchange international students
+      \item [e] Data collected on 09/11/2019 
+    \end{tablenotes}
+  \end{threeparttable}
+\end{center}
+\end{table}
+
+
+\begin{ThreePartTable}
+
+\begin{TableNotes}[para,flushleft]
+  \footnotesize
+      \item [a] Data source: \href{https://oiss.rice.edu/sites/g/files/bxs1291/f/StatReport2019-Public-Version.pdf}{The Office of International Students \& Scholars (OISS) Statistical Report for Fall 2019}
+      \item [b] IS: International degree-seeking students (non-immigrants only)
+      \item [c] IS\%: Percentage of Rice student population that is, or was, international
+      \item [d] Totals do not include visiting/exchange international students
+      \item [e] Data collected on 09/11/2019 
+\end{TableNotes}
+
+\begin{longtable}{lccccc}
+\caption{\textbf{International Student Enrollment at Rice University from 1989-2019}} \\
+\toprule
+Academic Year & Undergraduate IS & Graduate IS & Total IS & Overall total & IS\%  \\
+\midrule
+1989-1990 & 85 & 378 &463 &4220 & 10.97 \\
+1990-1991 &65 &401 &466 &4239 &10.99 \\
+1991-1992 &72 &400 &472 &4291 &11.00 \\
+1992-1993 &77 &390 &467 &4268 &10.94 \\
+1993-1994 &81 &384 &465 &4257 &10.92 \\
+1994-1995 &89 &370 &459 &4178 &10.99 \\
+1995-1996 &82 &374 &456 &4235 &10.77 \\
+1996-1997 &81 &386 &467 &4187 &11.15 \\
+1997-1998 &74 &389 &463 &4285 &10.81 \\
+1998-1999 &74 &435 &509 &4312 &11.80 \\
+1999-2000 &84 &434 &518 &4184 &12.38\\
+2000-2001 &77 &471 &548 &4372 &12.53\\
+2001-2002 &72 &551 &633 &4300 &14.72\\
+2002-2003 &93 &569 &662 &4733 &13.99\\
+2003-2004 &103 &571 &674 &4864 &13.86\\
+2004-2005 &99 &592 &691 &4950 &13.96\\
+2005-2006 &111 &644 &755 &4947 &15.26\\
+2006-2007 &139 &662 &801 &5179 &15.47\\
+2007-2008 &168 &684 &852 &5259 &16.20\\
+2008-2009 &203 &718 &921 &5337 &17.26\\
+2009-2010 &285 &767 &1052 &5577 &18.86\\
+2010-2011 &340 &773 &1113 &5763 &19.31\\
+2011-2012 &367 &827 &1194 &6080 &19.64\\
+2012-2013 &390 &898 &1288 &6402 &20.12\\
+2013-2014 &452 &975 &1427 &6354 &22.46\\
+2014-2015 &462 &1037 &1499 &6563 &22.84\\
+2015-2016 &476 &1087 &1563 &6692 &23.36\\
+2016-2017 &472 &1139 &1611 &6805 &23.61\\
+2017-2018 &458 &1174 &1632 &6907 &23.63\\
+2018-2019 &455 &1217 &1672 &7009 &23.86\\
+2019-2020 &478 &1311 &1789 &7146 &25.03 \\
+\bottomrule
+
+\insertTableNotes  % tell LaTeX where to insert the contents of TableNotes
+
+\end{longtable}
+\end{ThreePartTable}
+
+\begin{table}[H]
+\begin{center}
+\caption*{\textbf{A Simple Table}}
+\begin{tabular}{c|c}
+\hline\hline
+upper left & upper right \\
+\hline
+lower left & lower right \\
+\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Here is a brief tutorial for making tables in \LaTeX \ \href{https://es.overleaf.com/learn/latex/Tables}{https://es.overleaf.com/learn/latex/Tables}. Positioning the tables is also a topic (see: \href{https://www.overleaf.com/learn/latex/positioning\_images\_and\_tables}{https://www.overleaf.com/learn/latex/positioning\_images\_and\_tables}).
+
+You will do a lot of making tables when writing your empirical papers in the future. Moreover, statistical softwares can automatically generate a tex file with table typing that you can compile (that is, you can write codes in STATA or R to auto-generate a tex file with all the statistics, variable names, caption, table notes, and even table formats that you need to compile for a table). This is another big topic and here are some starter-level tutorials : \href{http://www.jwe.cc/2012/03/stata-latex-tables-estout/}{http://www.jwe.cc/2012/03/stata-latex-tables-estout/}, \href{http://repec.sowi.unibe.ch/stata/estout/esttab.html}{http://repec.sowi.unibe.ch/stata/estout/esttab.html}, \href{http://repec.org/bocode/e/estout/spost.html}{http://repec.org/bocode/e/estout/spost.html}, \href{http://tabout.net.au/downloads/tabout\_user\_guide.pdf}{http://tabout.net.au/downloads/tabout\_user\_guide.pdf}.
+
+
+\section{Adding References}
+
+Sometimes we can just add a footnote\footnote{This is a footnote.}. More rigorously, we need a reference section. 
+
+Here we refer to the lemon market paper by George Akerlof\cite{akerlof1978market}. You can accumulate and manage your own literature bibliography. \href{https://www.overleaf.com/learn/latex/bibliography\_management\_with\_bibtex}{https://www.overleaf.com/learn/latex/bibliography\_management\_with\_bibtex} is a useful tutorial for how to use bibtex file.
+
+\renewcommand\refname{References}
+\bibliographystyle{unsrt}
+\bibliography{EC510_TA_LaTeXIntro}
+
+
+\section{Alternative Choice: LyX}
+
+LyX (see \href{https://www.lyx.org/}{https://www.lyx.org/}) seems to be an alternative (and popular) choice among some scholars. It is something combining \LaTeX \ and MS Office Word: you can experience some \LaTeX \ typing while the contents can be \textbf{what you type in is what you see}. For example, enter \textbf{Ctrl+M} and you can enter the math mode. Type some Greek alphabets then you can see them immediately. LyX also provides various templates. A good news is that you can incorporate \LaTeX \ codes in LyX editing.
+
+I am not quite familiar with LyX, but you can do your own homework. Based on the requirement of this course, \LaTeX is preferred.
+
+\section{Some Small Assignments}
+
+How to generate a table of contents (menu)? How to make just one page landscape (for example, when you need a landscape page for a very wide table)? What if an equation is too long for one line? ......
+
+Think about one such small assignment and make it happen.
+
+\section{Last Sentence}
+Practice makes perfect for using \LaTeX, similarly as for using statistical or programming softwares. Start using \LaTeX to write your assignments, research proposals or papers today. After one semester, you will see a big change.
+
+
+
+
+
+
+
+
+\end{document}
