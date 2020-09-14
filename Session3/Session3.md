@@ -61,9 +61,13 @@ Now let us check if it is symmetric and idempotent
 %Symmetric and Idempotent
 if issymmetric(P)
     disp("Symmetric")
+else
+    disp("P is not symmetric")
 end
 if isequal(P2,P)
     disp("Idempotent")
+else
+    disp("P is not idempotent")
 end
 ```
 
@@ -79,7 +83,6 @@ P2=round(P2,2);
 if issymmetric(P)
     disp("P is symmetric now")
 end
-    
 if isequal(P2,P)
     disp("P is Idempotent now")
 end
@@ -91,4 +94,4 @@ disp("The rank of P is")
 rank(P)
 ```
 
-Your __assignment__ is to explain why?
+Can you explain why?
