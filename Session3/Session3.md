@@ -27,8 +27,68 @@ XX=X'*X                % QXX
 XY=X'*Y               % QXY
 beta=XX\XY;            %beta
 display(beta); 
-e=Y-X*beta;
 ```
-We first find the value of XX and then XY and then get the value of <img src="https://render.githubusercontent.com/render/math?math=\beta"> using <img src="https://render.githubusercontent.com/render/math?math=\beta (X'X)^{-1}X'Y">. __Reminder__ why do we use the backslash to calculate this.
+We first find the value of XX and then XY and then get the value of <img src="https://render.githubusercontent.com/render/math?math=\beta"> using <img src="https://render.githubusercontent.com/render/math?math=\beta = (X'X)^{-1}X'Y">.
 
+__Reminder__ why do we use the backslash to calculate this.
 
+#### Verify <img src="https://render.githubusercontent.com/render/math?math=(X'e)=0">
+
+```matlab
+e=Y-X*beta;
+%Show that X'e=0
+disp("The value of X'e is")
+display(X'*e);
+```
+#### Now unto the properties of the projection matrix
+
+```matlab
+%Properties of the projection matrix
+%define P
+P=X*inv(XX)*X';
+P2=P*P;
+
+disp("The rank of P is")
+rank(P)
+disp("The eigen values of P are")
+eig(P)
+```
+
+We can see that the projection matrix has rank 2 and has two eigen values of 1 and 18 eigen values of 0.
+Now let us check if it is symmetric and idempotent
+
+```matlab
+%Symmetric and Idempotent
+if issymmetric(P)
+    disp("Symmetric")
+end
+if isequal(P2,P)
+    disp("Idempotent")
+end
+```
+
+__WHAT IS HAPPENING?__
+P is not idempotent and symmetric. But everyone seems to think so. What do you think the issue is ?
+
+#### Scientific Computing and Errors
+You noticed that when we looked at the value of <img src="https://render.githubusercontent.com/render/math?math=(X'e)"> in MATLAB, it was not exactly zero. Programming languages work on a computer, so they cannot truly do continuous operations. All code that we write is converted to binary and the methods we use are discrete in nature. In short, this means that there is a small error that comes due to this and therefore P might look symmetric and idempotent to the naked eye but it is not. However fear not, we can solve this in a simple manner.
+
+```matlab
+P=round(P,2);
+P2=round(P2,2);
+if issymmetric(P)
+    disp("P is symmetric now")
+end
+    
+if isequal(P2,P)
+    disp("P is Idempotent now")
+end
+```
+
+Rounding off the projection matrix solves our problems but we have another problem now. Somehow rounding off has made the rank of the projection matrix to be 5. 
+```matlab
+disp("The rank of P is")
+rank(P)
+```
+
+Your __assignment__ is to explain why?
